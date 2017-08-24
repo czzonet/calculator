@@ -7,6 +7,7 @@ myDialog::myDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     temp=s1=s2="";
+    opt=0;
 
 }
 
@@ -15,6 +16,7 @@ myDialog::~myDialog()
     delete ui;
 }
 
+//start number
 void myDialog::on_pushButton_clicked()
 {
     temp+="1";
@@ -23,10 +25,9 @@ void myDialog::on_pushButton_clicked()
 
 void myDialog::on_pushButton_2_clicked()
 {
-temp+="2";
-this->ui->label->setText(temp);
+    temp+="2";
+    this->ui->label->setText(temp);
 }
-
 
 void myDialog::on_pushButton_3_clicked()
 {
@@ -69,7 +70,9 @@ void myDialog::on_pushButton_9_clicked()
     temp+="9";
     this->ui->label->setText(temp);
 }
+//end number
 
+//start opt
 void myDialog::on_pushButton_10_clicked()
 {
     s1=temp;
@@ -105,7 +108,9 @@ void myDialog::on_pushButton_13_clicked()
     temp.clear();
     opt = 4;
 }
+//end opt
 
+//result
 void myDialog::on_pushButton_14_clicked()
 {
     int a,b,c;
@@ -135,4 +140,11 @@ void myDialog::on_pushButton_14_clicked()
     }
     this->ui->label->setText(temp);
     temp.clear();
+}
+
+//number 0
+void myDialog::on_pushButton_15_clicked()
+{
+    temp+="0";
+    this->ui->label->setText(temp);
 }

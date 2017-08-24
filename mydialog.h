@@ -44,6 +44,8 @@ private slots:
 
     void on_pushButton_13_clicked();
 
+    void on_pushButton_15_clicked();
+
 private:
     Ui::myDialog *ui;
     QString temp,s1,s2;
