@@ -1,14 +1,13 @@
 #include "mydialog.h"
 #include "ui_mydialog.h"
 
+
 myDialog::myDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::myDialog)
 {
     ui->setupUi(this);
-    temp=s1=s2="";
-    opt=0;
-
+    m=new modle;
 }
 
 myDialog::~myDialog()
@@ -75,70 +74,47 @@ void myDialog::on_pushButton_9_clicked()
 //start opt
 void myDialog::on_pushButton_10_clicked()
 {
-    s1=temp;
+    m->set_s1(temp);
     temp+="+";
     this->ui->label->setText(temp);
     temp.clear();
-    opt = 1;
+    m->set_opt(1);
 }
 
 void myDialog::on_pushButton_11_clicked()
 {
-    s1=temp;
+    m->set_s1(temp);
     temp+="-";
     this->ui->label->setText(temp);
     temp.clear();
-    opt = 2;
+    m->set_opt(2);
 }
 
 void myDialog::on_pushButton_12_clicked()
 {
-    s1=temp;
+    m->set_s1(temp);
     temp+="*";
     this->ui->label->setText(temp);
     temp.clear();
-    opt = 3;
+    m->set_opt(3);
 }
 
 void myDialog::on_pushButton_13_clicked()
 {
-    s1=temp;
+    m->set_s1(temp);
     temp+="/";
     this->ui->label->setText(temp);
     temp.clear();
-    opt = 4;
+    m->set_opt(4);
 }
 //end opt
 
 //result
 void myDialog::on_pushButton_14_clicked()
 {
-    int a,b,c;
-    s2=temp;
-    temp.clear();
-    a=s1.toInt();
-    b=s2.toInt();
-    switch (opt) {
-    case 1:
-        c=a+b;
-        temp=QString::number(c,10);
-        break;
-    case 2:
-        c=a-b;
-        temp=QString::number(c,10);
-        break;
-    case 3:
-        c=a*b;
-        temp=QString::number(c,10);
-        break;
-    case 4:
-        c=a/b;
-        temp=QString::number(c,10);
-        break;
-    default:
-        break;
-    }
-    this->ui->label->setText(temp);
+    m->set_s2(temp);
+    QString tmp=m->cal();
+    this->ui->label->setText(tmp);
     temp.clear();
 }
 

@@ -2,6 +2,7 @@
 #define MYDIALOG_H
 
 #include <QDialog>
+#include "modle.h"
 
 namespace Ui {
 class myDialog;
@@ -48,8 +49,9 @@ private slots:
 
 private:
     Ui::myDialog *ui;
-    QString temp,s1,s2;
-    int opt;
+    modle *m;
+    QString temp;
+
 };
 
 #endif // MYDIALOG_H
